@@ -4,12 +4,37 @@
     {
         public double X;
         public double Y;
+
+        public double GetLength()
+        {
+            return Geometry.GetLength(this);
+        }
+
+        public Vector Add(Vector v)
+        {
+            return Geometry.Add(this, v);
+        }
+
+        public bool Belongs(Segment s)
+        {
+            return Geometry.IsVectorInSegment(this, s);
+        }
     }
 
     public class Segment
     {
         public Vector Begin;
         public Vector End;
+
+        public double GetLength()
+        {
+            return Geometry.GetLength(this);
+        }
+
+        public bool Contains(Vector v)
+        {
+            return Geometry.IsVectorInSegment(v, this);
+        }
     }
 
     public class Geometry
